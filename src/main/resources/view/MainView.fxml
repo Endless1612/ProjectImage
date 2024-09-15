@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ImageController">
+    <children>
+        <VBox layoutX="20.0" layoutY="20.0" prefHeight="174.0" prefWidth="350.0" spacing="15" style="-fx-padding: 15;">
+            <Label fx:id="dropArea" prefHeight="71.0" prefWidth="325.0" style="-fx-border-color: grey; -fx-border-width: 2; -fx-padding: 20; -fx-alignment: center; -fx-background-color: #f0f0f0;" text="Drag and drop a file here">
+                <graphic>
+                    <Button onAction="#onChooseFile" style="-fx-font-size: 14px;" text="Choose File" />
+                </graphic>
+            </Label>
+
+            <HBox spacing="10">
+                <ComboBox fx:id="algorithmChoice" prefWidth="200" promptText="Select Method" />
+                <Button fx:id="cropButton" onAction="#onDetectEdges" style="-fx-font-size: 14px;" text="Detect Edges" />
+            </HBox>
+
+            <Button fx:id="saveButton" onAction="#onSaveFile" style="-fx-font-size: 14px;" text="Save File" />
+
+            <!-- ปุ่มสำหรับ revert กลับไปที่ภาพต้นฉบับ -->
+            <Button fx:id="revertButton" onAction="#onRevertToOriginal" style="-fx-font-size: 14px;" text="Revert to Original" />
+
+            <Label fx:id="statusLabel" style="-fx-text-fill: green; -fx-font-size: 14px;" text="" />
+        </VBox>
+
+        <!-- StackPane สำหรับแสดงรูปภาพ -->
+        <StackPane layoutX="400.0" layoutY="20.0" prefHeight="450.0" prefWidth="550.0" style="-fx-border-color: grey; -fx-border-width: 2;">
+            <ImageView fx:id="imageView" fitHeight="450.0" fitWidth="550.0" preserveRatio="true" />
+        </StackPane>
+    </children>
+</AnchorPane>
